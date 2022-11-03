@@ -1,0 +1,3 @@
+DeviceFileEvents
+| where FolderPath matches regex @".*\\Microsoft Office( \(x86\)|\\root)?\\Templates.*"
+| where FolderPath endswith ".xls"
