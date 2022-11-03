@@ -1,0 +1,4 @@
+DeviceFileEvents
+| where ActionType == "FileCreated"
+| where FolderPath matches regex @".*\\Windows\\INetCache\\IE\\[A-Z0-9]{8}\\[A-Za-z0-9]*\[1\]\.dll"
+| where InitiatingProcessFileName != "iexplore.exe"
