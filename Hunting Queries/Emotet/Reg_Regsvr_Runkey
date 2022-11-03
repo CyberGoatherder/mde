@@ -1,0 +1,3 @@
+DeviceRegistryEvents
+| where RegistryKey contains @"\CurrentVersion\Run"
+| where RegistryValueData contains "regsvr32"
