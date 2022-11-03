@@ -1,0 +1,12 @@
+let DLL_List = pack_array(
+'winhttp.dll',
+'ws2_32.dll');
+DeviceImageLoadEvents
+| where Timestamp >= ago(7d)
+| where InitiatingProcessVersionInfoOriginalFileName == "REGSVR32.exe"
+| where FileName in~ (DLL_LIST)
+| summarize
+    winhttp=countif(FileName == "winhttp.dll"),
+    ws2_32=countif(FileName == "ws2_32.dll")
+    by DeviceName, DeviceId, InitiatingProcessFileName, InitiatingProcessId
+| where (winhttp > 0 and ws2_32 > 0)
