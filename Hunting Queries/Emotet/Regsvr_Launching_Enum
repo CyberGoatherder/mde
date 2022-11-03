@@ -1,0 +1,3 @@
+DeviceProcessEvents
+| where InitiatingProcessVersionInfoOriginalFileName == "REGSVR32.EXE"
+| where ProcessVersionInfoOriginalFileName in ("ipconfig.exe", "sysinfo.exe")
