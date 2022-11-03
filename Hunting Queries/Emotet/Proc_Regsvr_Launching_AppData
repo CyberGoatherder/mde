@@ -1,0 +1,3 @@
+DeviceProcessEvents
+| where ProcessVersionInfoOriginalFileName == "REGSVR32.exe"
+| where ProcessCommandLine contains @"\AppData\"
