@@ -1,0 +1,3 @@
+DeviceRegistryEvents
+| where RegistryKey contains @"\Excel\Security\Trusted Documents\TrustRecords"
+| where RegistryValueName endswith ".xls"
